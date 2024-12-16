@@ -39,7 +39,10 @@ public class BuyerService implements IBuyerService {
                 .orElseThrow(() -> new RuntimeException("Buyer with id " + id + " not found"));
 
         existingBuyer.setUsername(updatedBuyer.getUsername());
-        existingBuyer.setPassword(updatedBuyer.getPassword());
+        if (updatedBuyer.getPassword() != null && !updatedBuyer.getPassword().isEmpty()) {
+            String encodedPassword = passwordEncoder.encode(updatedBuyer.getPassword());
+            existingBuyer.setPassword(encodedPassword);
+        }
         existingBuyer.setEmail(updatedBuyer.getEmail());
         existingBuyer.setCart(updatedBuyer.getCart());
         existingBuyer.setOrderHistory(updatedBuyer.getOrderHistory());

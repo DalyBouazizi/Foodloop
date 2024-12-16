@@ -107,13 +107,13 @@ public class UserController {
 //AUTHENTICATE
 // Login a User
 @PostMapping("/login")
-public ResponseEntity<String> loginUser(@RequestParam String username, @RequestParam String password) {
-    boolean isAuthenticated = userService.authenticateUser(username, password);
+public ResponseEntity<String> loginUser(@RequestParam String email, @RequestParam String password) {
+    boolean isAuthenticated = userService.authenticateUser(email, password);
 
     if (isAuthenticated) {
         return ResponseEntity.ok("Login successful!");
     } else {
-        return ResponseEntity.status(401).body("Invalid username or password");
+        return ResponseEntity.status(401).body("Invalid email or password");
     }
 }
 }

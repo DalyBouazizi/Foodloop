@@ -39,7 +39,10 @@ public class RestaurantService implements IRestaurantService {
                 .orElseThrow(() -> new RuntimeException("Restaurant with id " + id + " not found"));
 
         existingRestaurant.setUsername(updatedRestaurant.getUsername());
-        existingRestaurant.setPassword(updatedRestaurant.getPassword());
+        if (updatedRestaurant.getPassword() != null && !updatedRestaurant.getPassword().isEmpty()) {
+            String encodedPassword = passwordEncoder.encode(updatedRestaurant.getPassword());
+            existingRestaurant.setPassword(encodedPassword);
+        }
         existingRestaurant.setEmail(updatedRestaurant.getEmail());
         existingRestaurant.setRestaurantName(updatedRestaurant.getRestaurantName());
         existingRestaurant.setLocation(updatedRestaurant.getLocation());
