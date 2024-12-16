@@ -1,9 +1,11 @@
 package dev.Foodloop.persistance.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,8 +16,8 @@ public class Restaurant extends User {
     private String location;
     private String logo;
 
-    @OneToMany(mappedBy = "restaurant")
-    private List<FoodItem> inventory;
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    private List<FoodItem> inventory = new ArrayList<>();
 
     public String getRestaurantName() {
         return restaurantName;
