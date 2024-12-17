@@ -22,7 +22,7 @@ public class OrderController {
     }
 
     // Get all orders
-    @GetMapping({"", "/"})
+    @GetMapping()
     public ResponseEntity<List<Order>> getAllOrders() {
         List<Order> orders = orderService.getAllOrders();
         return ResponseEntity.ok(orders);
@@ -50,9 +50,9 @@ public class OrderController {
     }
 
     // Create a new order
-    @PostMapping({"/create"})
-    public ResponseEntity<Order> createOrder(@RequestParam Long buyerId,
-                                             @RequestParam Long restaurantId,
+    @PostMapping({"/create/{buyerId}/{restaurantId}/"})
+    public ResponseEntity<Order> createOrder(@PathVariable Long buyerId,
+                                             @PathVariable Long restaurantId,
                                              @RequestBody List<OrderItem> orderItems) {
         Order createdOrder = orderService.createOrder(buyerId, restaurantId, orderItems);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
