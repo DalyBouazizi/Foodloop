@@ -1,5 +1,8 @@
 package dev.Foodloop.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -18,6 +21,7 @@ public class FoodItem {
     private String picture;
 
     @ManyToOne
+    @JsonIgnoreProperties({"inventory"}) // Prevent recursion when serializing Restaurant
     private Restaurant restaurant;
 
     public Long getId() {

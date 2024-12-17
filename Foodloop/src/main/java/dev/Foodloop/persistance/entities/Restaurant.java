@@ -1,5 +1,7 @@
 package dev.Foodloop.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -17,6 +19,8 @@ public class Restaurant extends User {
     private String logo;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"restaurant"}) // Prevent recursion when serializing FoodItem
+
     private List<FoodItem> inventory = new ArrayList<>();
 
     public String getRestaurantName() {

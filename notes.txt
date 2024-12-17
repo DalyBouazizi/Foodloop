@@ -1,1 +1,1 @@
--password on update for both buyers and restau
+--email UNIQUE
