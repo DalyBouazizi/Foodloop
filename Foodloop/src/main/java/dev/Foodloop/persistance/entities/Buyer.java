@@ -1,5 +1,6 @@
 package dev.Foodloop.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public class Buyer extends User {
     private Cart cart;
 
     @OneToMany(mappedBy = "buyer")
+    @JsonIgnoreProperties({"buyer"}) // Prevent recursion when serializing FoodItem
     private List<Order> orderHistory;
 
     public Cart getCart() {

@@ -42,13 +42,18 @@ public class OrderService implements IOrderService {
         Order order = new Order();
         order.setBuyer(buyer);
         order.setRestaurant(restaurant);
-        order.setOrderItems(orderItems);
         order.setOrderDate(LocalDate.now());
         order.setStatus("PENDING");
 
-        double totalPrice = orderItems.stream()
-                .mapToDouble(item -> item.getPrice() * item.getQuantity())
-                .sum();
+        double totalPrice = 0;
+
+        // Associate each OrderItem with the current Order
+        for (OrderItem item : orderItems) {
+            item.setOrder(order); // **Link Order to OrderItem**
+            totalPrice += item.getPrice() * item.getQuantity();
+        }
+
+        order.setOrderItems(orderItems);
         order.setTotalPrice(totalPrice);
 
         return orderRepository.save(order);

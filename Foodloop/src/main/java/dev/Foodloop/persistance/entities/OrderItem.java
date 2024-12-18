@@ -1,5 +1,6 @@
 package dev.Foodloop.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,6 +10,8 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false)
+    @JsonIgnoreProperties({"orderItems"}) // Prevent recursion when serializing Restaurant
     private Order order;
 
     @ManyToOne

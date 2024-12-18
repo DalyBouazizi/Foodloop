@@ -50,7 +50,7 @@ public class OrderController {
     }
 
     // Create a new order
-    @PostMapping({"/create/{buyerId}/{restaurantId}/"})
+    @PostMapping({"/create/{buyerId}/{restaurantId}"})
     public ResponseEntity<Order> createOrder(@PathVariable Long buyerId,
                                              @PathVariable Long restaurantId,
                                              @RequestBody List<OrderItem> orderItems) {

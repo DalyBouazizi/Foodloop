@@ -1,8 +1,10 @@
 package dev.Foodloop.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,13 +15,18 @@ public class Order {
     private Long id;
 
     @ManyToOne
+    @JsonIgnoreProperties({"orderHistory"}) // Prevent recursion when serializing FoodItem
     private Buyer buyer;
 
     @ManyToOne
+
     private Restaurant restaurant;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
-    private List<OrderItem> orderItems;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "order")
+    @JsonIgnoreProperties({"order"}) // Prevent recursion when serializing Restaurant
+
+    private List<OrderItem> orderItems = new ArrayList<>();
+
 
     private double totalPrice;
     private String status;
