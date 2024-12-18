@@ -17,6 +17,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/**").permitAll() // Allow all endpoints under /users without authentication
                         .requestMatchers("/orders/**").permitAll() // Allow all endpoints under /users without authentication
                         .requestMatchers("/fooditems/**").permitAll() // Allow all endpoints under /users without authentication
+                        .requestMatchers("/payments/**").permitAll() // Allow all endpoints under /users without authentication
                         .anyRequest().authenticated() // Require authentication for other requests
 
                 )
