@@ -1,0 +1,141 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@700&family=Oswald:wght@700&family=Raleway:wght@700&family=Lato:wght@700&display=swap');
+
+body {
+    font-family: 'Montserrat', 'Poppins', 'Oswald', 'Raleway', 'Lato', sans-serif;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    height: 90vh; /* Full viewport height */
+    position: relative;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Gradient Animation */
+    background: linear-gradient(315deg, #185857 3%, #2A6F6E 38%, #3C8675 68%, #4E9D7C 98%);
+    animation: gradient 7s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+/* Container Fluid Styling */
+.container-fluid {
+    position: relative;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Gradient Animation */
+    background: linear-gradient(315deg, #185857 3%, #2A6F6E 38%, #3C8675 68%, #4E9D7C 98%);
+    animation: gradient 7s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+/* Keyframes for Gradient */
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+
+
+.hero-section .container, .container-fluid .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navbar Styling */
+.navbar {
+    height: 70px; /* Adjust the height as needed */
+    border-bottom: 2px solid #FFFFF0 ; /* White line under navbar */
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Space between logo and buttons */
+    padding: 0 20px; /* Add some padding for spacing */
+    
+}
+
+.navbar-brand img {
+    height: 100px; /* Adjust the logo size as needed */
+    display: block; /* Ensure the image is displayed */
+}
+
+.navbar-brand img {
+    height: 80px; /* Adjust the logo size as needed */
+}
+
+.nav-link {
+    color: #FFFFF0  !important;
+}
+
+.btn {
+    font-weight: 600;
+    padding: 10px 20px;
+}
+.mybtn{
+    color: #FFFFF0  !important;
+    outline: 2px solid #FFFFF0;
+    padding: 5px;
+    margin: 7px;
+    border-radius: 0px !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.mybtn:hover{
+
+    outline: 2px solid #67D695;
+    color: #67D695 !important;
+}
+/* Wave Animation */
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: absolute;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 12s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+/* Keyframes for Waves */
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+    25% {
+        transform: translateX(-25%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    75% {
+        transform: translateX(-25%);
+    }
+    100% {
+        transform: translateX(1);
+    }
+}

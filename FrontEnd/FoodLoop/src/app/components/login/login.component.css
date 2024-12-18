@@ -1,0 +1,39 @@
+/* General styling for the whole container */
+.container-fluid {
+    height: 100vh;
+    background-color: #185857; /* Set background color for the whole container */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    box-shadow: insets;
+    background-color: #adbcbc; /* Change background color for the login container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Change the color of input fields */
+.form-control {
+    background-color: #d3e2e2; /* Change background color */
+    color: #000; /* Change text color */
+    border-color: #185857; /* Change border color */
+    padding: 10px; /* Adjust padding if needed */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+.form-control:focus {
+    border-color: #0A7166; /* Change border color on focus */
+    outline: none;
+}
+.loginbutton{
+    background-color: #beef61 !important;
+   
+}
+.headtext{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
