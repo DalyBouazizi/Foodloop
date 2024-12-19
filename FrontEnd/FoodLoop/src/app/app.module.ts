@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './components/signup/signup.component';
 import { FoodCatalogueComponent } from './components/food-catalogue/food-catalogue.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { FoodItemComponent } from './components/food-item/food-item.component';
+
 
 @NgModule({
   declarations: [
@@ -18,13 +21,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     SignupComponent,
     FoodCatalogueComponent,
-    NavbarComponent
+    NavbarComponent,
+    OrdersComponent,
+    FoodItemComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, // Include the AppRoutingModule here
     FormsModule, // Add FormsModule here
-    HttpClientModule
+    HttpClientModule,
+    
 
 
   ],

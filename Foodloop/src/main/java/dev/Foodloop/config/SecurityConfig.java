@@ -20,6 +20,7 @@ public class SecurityConfig {
                         .requestMatchers("/payments/**").permitAll() // Allow all endpoints under /users without authentication
                         .anyRequest().authenticated() // Require authentication for other requests
 
+
                 )
                 .csrf(csrf -> csrf.disable())
                 .build();

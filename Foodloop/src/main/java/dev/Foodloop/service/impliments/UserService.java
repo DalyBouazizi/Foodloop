@@ -22,11 +22,16 @@ public class UserService implements IUserService {
 
 
     // Authenticate User (Login)
-    public boolean authenticateUser(String email, String rawPassword) {
+    public User authenticateUser(String email, String rawPassword) {
+        // Fetch user by email
         User existingUser = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("email not found"));
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Compare raw password with encoded password
-        return passwordEncoder.matches(rawPassword, existingUser.getPassword());
+        // Check if password matches
+        if (passwordEncoder.matches(rawPassword, existingUser.getPassword())) {
+            return existingUser; // Return user if authentication is successful
+        } else {
+            throw new RuntimeException("Invalid credentials");
+        }
     }
 }

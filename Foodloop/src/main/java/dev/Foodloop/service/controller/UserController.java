@@ -2,6 +2,7 @@ package dev.Foodloop.service.controller;
 
 import dev.Foodloop.persistance.entities.Buyer;
 import dev.Foodloop.persistance.entities.Restaurant;
+import dev.Foodloop.persistance.entities.User;
 import dev.Foodloop.service.impliments.BuyerService;
 import dev.Foodloop.service.impliments.RestaurantService;
 import dev.Foodloop.service.impliments.UserService;
@@ -123,11 +124,11 @@ public class UserController {
 //AUTHENTICATE
 // Login a User
 @PostMapping("/login")
-public ResponseEntity<String> loginUser(@RequestParam String email, @RequestParam String password) {
-    boolean isAuthenticated = userService.authenticateUser(email, password);
+public ResponseEntity<?> loginUser(@RequestParam String email, @RequestParam String password) {
+    User user = userService.authenticateUser(email, password);
 
-    if (isAuthenticated) {
-        return ResponseEntity.ok("Login successful!");
+    if (user != null) {
+        return ResponseEntity.ok(user);
     } else {
         return ResponseEntity.status(401).body("Invalid email or password");
     }

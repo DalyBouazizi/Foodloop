@@ -1,0 +1,40 @@
+.container {
+    padding: 20px 5px; /* Add spacing at the top and sides */
+    width: 100%; /* Ensure the container spans the full width */
+    max-width: 100%; /* Override Bootstrap's default container max-width */
+    background-color: #E8E7E3;
+    height: 100vh;
+    margin-top: 0px !important;
+  }
+  
+  .table-responsive {
+    width: calc(100% - 10px); /* Subtract 5px for both left and right sides */
+    margin: 0 auto; /* Center the table horizontally */
+  }
+  .table{
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #e8e7e3;
+  }
+  
+  .status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .status-success {
+    background-color: #e6f4ea;
+    color: #34a853;
+    border: 1px solid #34a853;
+  }
+  
+  .status-pending {
+    background-color: #fdf7e6;
+    color: #fbbc05;
+    border: 1px solid #fbbc05;
+  }
+  

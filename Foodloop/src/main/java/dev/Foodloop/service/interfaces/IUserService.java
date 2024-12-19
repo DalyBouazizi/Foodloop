@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface IUserService {
 
-    public boolean authenticateUser(String username, String rawPassword);
+    public User authenticateUser(String username, String rawPassword);
 }

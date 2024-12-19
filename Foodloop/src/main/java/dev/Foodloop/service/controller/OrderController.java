@@ -12,6 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@CrossOrigin(origins = "http://localhost:4200") // Allow requests from Angular
+
 public class OrderController {
 
     private final IOrderService orderService;

@@ -11,13 +11,13 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): Observable<string> {
+  login(email: string, password: string): Observable<any> { // Changed from 'string' to 'any' to handle the JSON response
     const params = new HttpParams().set('email', email).set('password', password);
-    return this.http.post(`${this.apiUrl}/login`, null, {
+    return this.http.post<any>(`${this.apiUrl}/login`, null, { // Specified the type as 'any'
       params,
-      responseType: 'text', // Backend returns plain text response
+      responseType: 'json', // Corrected response type to 'json'
     });
-  }
+}
 
   signUpBuyer(buyerData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/buyers`, buyerData)

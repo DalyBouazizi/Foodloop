@@ -1,0 +1,53 @@
+.container {
+    margin: 0px auto !important;
+    background-color: #E8E7E3;
+    max-width: 1600px !important;
+    padding: 20px;
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    width: 150px;
+    top: 20px;
+    right: 20px; /* Aligns the button to the top-right */
+    z-index: 10; /* Ensures the button stays on top */
+}
+
+.table-responsive {
+    width: 90%;
+    margin: auto;
+    margin-top: 60px; /* Adds space between the button and the table */
+}
+
+.food-table {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #e8e7e3;
+}
+
+.food-table thead {
+    background-color: #f8f9fa;
+}
+
+.food-image {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.add-food-btn {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-food-btn:hover {
+    background-color: #218838;
+    color: #ffffff;
+}

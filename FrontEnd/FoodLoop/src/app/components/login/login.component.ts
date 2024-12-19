@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthServiceService } from '../../services/auth-service.service';
 import { Router } from '@angular/router';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +14,18 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthServiceService, private router: Router) {}
+  constructor(private authService: AuthServiceService, private router: Router,private storageService: StorageService) {}
 
   onSubmit(): void {
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
-        alert(response); // Display success message
-        this.router.navigate(['/home']); // Navigate to home page or dashboard
+
+        // Use StorageService to store user data
+        this.storageService.setItem('userId', response.id);
+        this.storageService.setItem('userRole', response.role);
+        alert('Login successful!');
+        this.router.navigate(['/home']);
+    
       },
       (error) => {
         this.errorMessage = 'Invalid email or password. Please try again.';
