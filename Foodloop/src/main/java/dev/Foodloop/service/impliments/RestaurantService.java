@@ -1,6 +1,7 @@
 package dev.Foodloop.service.impliments;
 
 import dev.Foodloop.persistance.dao.RestaurantRepository;
+import dev.Foodloop.persistance.dao.UserRepository;
 import dev.Foodloop.persistance.entities.Restaurant;
 import dev.Foodloop.service.interfaces.IRestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,13 @@ import java.util.List;
 public class RestaurantService implements IRestaurantService {
 
     private final RestaurantRepository restaurantRepository;
+    private final UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    public RestaurantService(RestaurantRepository restaurantRepository) {
+    public RestaurantService(RestaurantRepository restaurantRepository, UserRepository userRepository) {
         this.restaurantRepository = restaurantRepository;
+        this.userRepository = userRepository;
     }
 
     // 1️⃣ Create Restaurant
@@ -25,6 +28,9 @@ public class RestaurantService implements IRestaurantService {
     public Restaurant createRestaurant(Restaurant restaurant) {
         if (restaurant.getRole() == null) {
             restaurant.setRole("RESTAURANT");
+        }
+        if (userRepository.existsByEmail(restaurant.getEmail())) {
+            throw new RuntimeException("Email already in use");
         }
         // Encrypt password before saving
         String encodedPassword = passwordEncoder.encode(restaurant.getPassword());

@@ -1,0 +1,71 @@
+/* General styling for the whole container */
+.container-fluid {
+    min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+    background-color: #185857; /* Set background color for the whole container */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    padding: 20px; /* Add some padding */
+}
+
+/* Style the catalogue container */
+.catalogue-container {
+    width: 100%;
+    max-width: 1600px;
+    background-color: transparent; /* Change background color for the catalogue container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.headtext {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.card {
+    background-color: #d3e2e2; /* Change background color */
+    color: #000; /* Change text color */
+    border-color: #185857; /* Change border color */
+    border-radius: 8px; /* Round the edges of the card */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+.card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #185857;
+}
+
+.btn.loginbutton {
+    background-color: #beef61 !important;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn.loginbutton:hover {
+    background-color: #a8d54f !important;
+}

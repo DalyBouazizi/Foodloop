@@ -12,6 +12,7 @@ public class User {
 
     private String username;
     private String password;
+    @Column(unique = true, nullable = false) // Ensures email is unique and not null
     private String email;
     private String role;
 

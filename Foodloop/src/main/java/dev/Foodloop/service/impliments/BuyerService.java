@@ -1,6 +1,7 @@
 package dev.Foodloop.service.impliments;
 
 import dev.Foodloop.persistance.dao.BuyerRepository;
+import dev.Foodloop.persistance.dao.UserRepository;
 import dev.Foodloop.persistance.entities.Buyer;
 import dev.Foodloop.service.interfaces.IBuyerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,13 @@ import java.util.List;
 public class BuyerService implements IBuyerService {
 
     private final BuyerRepository buyerRepository;
+    private final UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    public BuyerService(BuyerRepository buyerRepository) {
+    public BuyerService(BuyerRepository buyerRepository, UserRepository userRepository) {
         this.buyerRepository = buyerRepository;
+        this.userRepository = userRepository;
     }
 
     // 1️⃣ Create Buyer
@@ -25,6 +28,9 @@ public class BuyerService implements IBuyerService {
     public Buyer createBuyer(Buyer buyer) {
         if (buyer.getRole() == null) {
             buyer.setRole("BUYER");
+        }
+        if (userRepository.existsByEmail(buyer.getEmail())) {
+            throw new RuntimeException("Email already in use");
         }
         // Encrypt password before saving
         String encodedPassword = passwordEncoder.encode(buyer.getPassword());

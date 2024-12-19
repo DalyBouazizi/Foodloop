@@ -14,6 +14,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:4200") // Allow requests from Angular
+
 public class UserController {
 
     private final BuyerService buyerService;
@@ -33,9 +35,16 @@ public class UserController {
 
     // 1️⃣ Create a Buyer (POST /users/buyers)
     @PostMapping("/buyers")
-    public ResponseEntity<Buyer> createBuyer(@RequestBody Buyer buyer) {
-        Buyer createdBuyer = buyerService.createBuyer(buyer);
-        return new ResponseEntity<>(createdBuyer, HttpStatus.CREATED);
+    public ResponseEntity<?> createBuyer(@RequestBody Buyer buyer) {
+
+
+        try {
+            Buyer createdBuyer = buyerService.createBuyer(buyer);
+            return new ResponseEntity<>(createdBuyer, HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+
     }
 
     // 2️⃣ Get a Buyer by ID (GET /users/buyers/{id})
@@ -72,9 +81,16 @@ public class UserController {
 
     // 1️⃣ Create a Restaurant (POST /users/restaurants)
     @PostMapping("/restaurants")
-    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
-        Restaurant createdRestaurant = restaurantService.createRestaurant(restaurant);
-        return new ResponseEntity<>(createdRestaurant, HttpStatus.CREATED);
+    public ResponseEntity<?> createRestaurant(@RequestBody Restaurant restaurant) {
+
+        try {
+            Restaurant createdRestaurant = restaurantService.createRestaurant(restaurant);
+            return new ResponseEntity<>(createdRestaurant, HttpStatus.CREATED);
+
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+
     }
 
     // 2️⃣ Get a Restaurant by ID (GET /users/restaurants/{id})

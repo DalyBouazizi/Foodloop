@@ -1,0 +1,57 @@
+/* Container styling */
+.container-fluid {
+  height: 100vh;
+  background-color: #185857; /* Same background color as login page */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 1000px; /* Wider for split layout */
+  background-color: #adbcbc; /* Same background color as login page */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form control styling */
+.form-control {
+  background-color: #d3e2e2;
+  color: #000;
+  border-color: #185857;
+  padding: 10px;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #0A7166;
+  outline: none;
+}
+
+/* Button styling */
+.loginbutton {
+  background-color: #beef61 !important;
+}
+
+.headtext {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+/* Column styling for split layout */
+.row {
+ 
+ 
+  background-color: transparent;
+  padding: 20px;
+}
+
+.col-md-6 {
+  border-right: 1px solid #ddd;
+  padding: 20px;
+}
+
+.col-md-6:last-child {
+  border-right: none;
+}
