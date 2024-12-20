@@ -1,1 +1,48 @@
-<p>fooditem-add works!</p>
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+  <div class="add-food-container p-4 rounded shadow">
+    <div class="d-flex justify-content-between mb-3">
+      <a href="/" class="text-decoration-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="back-arrow">
+          <path fill="none" d="M0 0h24v24H0V0z"></path>
+          <path d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03 0-1.42-.39-.39-1.02-.39-1.41 0l-6.59 6.59c-.39.39-.39 1.02 0 1.41l6.59 6.59c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L7.83 13H19c.55 0 1-.45 1-1s-.45-1-1-1z"></path>
+        </svg>
+      </a>
+    </div>
+    <h2 class="text-center headtext mb-4">Add Food Item</h2>
+    <form (ngSubmit)="onSubmit()" class="row g-3">
+      <!-- Left Column -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" [(ngModel)]="foodItem.name" name="name" class="form-control" id="name" placeholder="Enter food name" required />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea [(ngModel)]="foodItem.description" name="description" class="form-control" id="description" rows="3" placeholder="Enter food description"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" [(ngModel)]="foodItem.price" name="price" class="form-control" id="price" placeholder="Enter price" required />
+        </div>
+      </div>
+      <!-- Right Column -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantity</label>
+          <input type="number" [(ngModel)]="foodItem.quantity" name="quantity" class="form-control" id="quantity" placeholder="Enter quantity" required />
+        </div>
+        <div class="mb-3">
+          <label for="expirationDate" class="form-label">Expiration Date</label>
+          <input type="date" [(ngModel)]="foodItem.expirationDate" name="expirationDate" class="form-control" id="expirationDate" required />
+        </div>
+        <div class="mb-3">
+          <label for="picture" class="form-label">Picture URL</label>
+          <input type="text" [(ngModel)]="foodItem.picture" name="picture" class="form-control" id="picture" placeholder="Enter picture URL" />
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn add-food-button w-100">Add Food Item</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -12,6 +12,8 @@ import { FoodCatalogueComponent } from './components/food-catalogue/food-catalog
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { FoodItemComponent } from './components/food-item/food-item.component';
+import { FooditemADDComponent } from './components/fooditem-add/fooditem-add.component';
+import { OrderHistoryListComponent } from './components/order-history-list/order-history-list.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { FoodItemComponent } from './components/food-item/food-item.component';
     NavbarComponent,
     OrdersComponent,
     FoodItemComponent,
-    
+    FooditemADDComponent,
+    OrderHistoryListComponent,
   ],
   imports: [
     BrowserModule,

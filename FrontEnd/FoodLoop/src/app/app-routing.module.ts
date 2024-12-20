@@ -6,6 +6,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { FoodCatalogueComponent } from './components/food-catalogue/food-catalogue.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { FoodItemComponent } from './components/food-item/food-item.component';
+import { FooditemADDComponent } from './components/fooditem-add/fooditem-add.component';
+import { OrderHistoryListComponent } from './components/order-history-list/order-history-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },  // Default route
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'FoodCat', component: FoodCatalogueComponent },  // Add a route for the LoginComponent
   { path: 'OrdersList', component: OrdersComponent },  // Add a route for the LoginComponent
   { path: 'FoodItemList', component: FoodItemComponent },  // Add a route for the LoginComponent
+  { path: 'itemadd', component: FooditemADDComponent },  // Add a route for the LoginComponent
+  { path: 'order-history', component: OrderHistoryListComponent }  // Add a route for the LoginComponent
 ];
 
 

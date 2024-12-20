@@ -23,7 +23,7 @@ export class FoodItemComponent implements OnInit {
   }
 
   addFoodItem(): void {
-    this.router.navigate(['/food-item-form']);
+    this.router.navigate(['/itemadd']);
   }
 
   editFoodItem(id: number): void {

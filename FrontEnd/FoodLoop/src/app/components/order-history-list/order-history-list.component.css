@@ -1,0 +1,41 @@
+.container {
+    padding: 20px 5px;
+    width: 100%;
+    max-width: 100%;
+    background-color: #E8E7E3;
+    height: 100vh;
+    margin-top: 0px !important;
+  }
+  
+  .table-responsive {
+    width: calc(100% - 10px);
+    margin: 0 auto;
+  }
+  
+  .table {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #e8e7e3;
+  }
+  
+  .status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .status-success {
+    background-color: #e6f4ea;
+    color: #34a853;
+    border: 1px solid #34a853;
+  }
+  
+  .status-pending {
+    background-color: #fdf7e6;
+    color: #fbbc05;
+    border: 1px solid #fbbc05;
+  }
+  

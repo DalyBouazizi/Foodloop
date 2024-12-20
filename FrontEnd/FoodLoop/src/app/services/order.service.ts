@@ -22,4 +22,18 @@ export class OrderService {
       headers: { 'Content-Type': 'application/json' }
     });
   }
+
+  getOrdersByBuyerId(buyerId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/buyer/${buyerId}`);
+  }
+
+  createOrder(buyerId: number, restaurantId: number, orderItems: any[]): Observable<any> {
+    const url = `${this.apiUrl}/create/${buyerId}/${restaurantId}`;
+    return this.http.post(url, orderItems, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  
+  
 }

@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-footer d-flex justify-content-between align-items-center">
                         <span class="price fw-bold">${{ food.price?.toFixed(2) }}</span>
-                        <button class="btn loginbutton btn-sm">Order Now</button>
+                        <button class="btn loginbutton btn-sm"(click)="orderNow(food)">Order Now</button>
                     </div>
                 </div>
             </div>

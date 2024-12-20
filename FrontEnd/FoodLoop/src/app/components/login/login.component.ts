@@ -23,7 +23,7 @@ export class LoginComponent {
         // Use StorageService to store user data
         this.storageService.setItem('userId', response.id);
         this.storageService.setItem('userRole', response.role);
-        alert('Login successful!');
+        
         this.router.navigate(['/home']);
     
       },
